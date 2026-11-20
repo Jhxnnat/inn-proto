@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Biblioteca UTB: lectura, notas e investigación académica">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071f5a" />
+      <stop offset="1" stop-color="#05174a" />
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a41f5" />
+      <stop offset="1" stop-color="#0835c8" />
+    </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="0%" r="85%">
+      <stop offset="0" stop-color="#0a41f5" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#0a41f5" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#93b4ff" stroke-opacity="0.07" stroke-width="1" />
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#020b24" flood-opacity="0.55" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <circle cx="1130" cy="120" r="220" fill="none" stroke="#93b4ff" stroke-opacity="0.08" stroke-width="56" />
+  <circle cx="1130" cy="120" r="130" fill="none" stroke="#93b4ff" stroke-opacity="0.06" stroke-width="1.5" />
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="74" width="76" height="76" rx="18" fill="url(#blue)" />
+    <svg x="89" y="83" width="58" height="58" viewBox="0 0 64 64">
+      <path d="M32 21.5c-4.7-3.2-10.3-4-16.5-3.4a1.8 1.8 0 0 0-1.6 1.8v27.3c0 1.1 1 2 2.1 1.8 5.8-.6 11 .3 15.2 3.2a1.6 1.6 0 0 0 1.6 0c4.2-2.9 9.4-3.8 15.2-3.2 1.1.1 2.1-.7 2.1-1.8V19.9c0-1-.8-1.8-1.8-1.8-6.1-.5-11.6.4-16.3 3.4Z" fill="#ffffff" />
+      <path d="M32 23v27" stroke="#0a41f5" stroke-width="2.6" stroke-linecap="round" />
+      <path d="M21 24.5c2.8-.2 5.4.2 7.6 1.2M21 31c2.8-.2 5.4.2 7.6 1.2M43 24.5c-2.8-.2-5.4.2-7.6 1.2M43 31c-2.8-.2-5.4.2-7.6 1.2" stroke="#93b4ff" stroke-width="2.2" stroke-linecap="round" opacity="0.9" />
+    </svg>
+  </g>
+
+  <text x="178" y="116" font-family="Liberation Sans, sans-serif" font-size="34" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Biblioteca UTB</text>
+  <text x="179" y="145" font-family="Liberation Sans, sans-serif" font-size="15" font-weight="700" fill="#93b4ff" letter-spacing="3">INVESTIGACIÓN Y LECTURA</text>
+
+  <rect x="80" y="232" width="64" height="6" rx="3" fill="url(#blue)" />
+
+  <text x="80" y="328" font-family="Liberation Sans, sans-serif" font-size="66" font-weight="700" fill="#ffffff" letter-spacing="-2">Lectura, notas e</text>
+  <text x="80" y="404" font-family="Liberation Sans, sans-serif" font-size="66" font-weight="700" fill="#ffffff" letter-spacing="-2">investigación <tspan fill="#93b4ff">académica</tspan></text>
+
+  <text x="82" y="482" font-family="Liberation Sans, sans-serif" font-size="25" fill="#c7d8ff">Con inteligencia artificial guiada por la ética académica.</text>
+
+  <text x="80" y="570" font-family="Liberation Sans, sans-serif" font-size="20" font-weight="700" fill="#93b4ff" letter-spacing="0.5">Biblioteca UTB</text>
+  <text x="1120" y="570" text-anchor="end" font-family="Liberation Sans, sans-serif" font-size="20" fill="#93b4ff">proto.jhx.homes</text>
+</svg>

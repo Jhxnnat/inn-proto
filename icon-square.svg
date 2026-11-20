@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Biblioteca UTB">
+  <rect width="64" height="64" fill="#05174a" />
+  <path
+    d="M32 21.5c-4.7-3.2-10.3-4-16.5-3.4a1.8 1.8 0 0 0-1.6 1.8v27.3c0 1.1 1 2 2.1 1.8 5.8-.6 11 .3 15.2 3.2a1.6 1.6 0 0 0 1.6 0c4.2-2.9 9.4-3.8 15.2-3.2 1.1.1 2.1-.7 2.1-1.8V19.9c0-1-.8-1.8-1.8-1.8-6.1-.5-11.6.4-16.3 3.4Z"
+    fill="#ffffff"
+  />
+  <path d="M32 23v27" stroke="#0a41f5" stroke-width="2.6" stroke-linecap="round" />
+  <path
+    d="M21 24.5c2.8-.2 5.4.2 7.6 1.2M21 31c2.8-.2 5.4.2 7.6 1.2M43 24.5c-2.8-.2-5.4.2-7.6 1.2M43 31c-2.8-.2-5.4.2-7.6 1.2"
+    stroke="#93b4ff"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    opacity="0.9"
+  />
+</svg>
