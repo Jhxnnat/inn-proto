@@ -47,92 +47,111 @@ type Book = {
 const books: Book[] = [
   {
     id: 1,
-    title: "La vida secreta de los árboles",
-    author: "Peter Wohlleben",
-    cover: "cover-forest",
-    format: "EPUB",
+    title: "Ética de la inteligencia artificial",
+    author: "Luciano Floridi",
+    cover: "cover-history",
+    format: "PDF",
     progress: 68,
-    category: "Ciencia",
+    category: "Ética",
   },
   {
     id: 2,
-    title: "Una breve historia de casi todo",
-    author: "Bill Bryson",
-    cover: "cover-history",
+    title: "Metodología de la investigación",
+    author: "Roberto Hernández Sampieri",
+    cover: "cover-time",
     format: "EPUB",
-    category: "Historia",
+    category: "Metodología",
   },
   {
     id: 3,
-    title: "El orden del tiempo",
-    author: "Carlo Rovelli",
-    cover: "cover-time",
-    format: "PDF",
-    category: "Ciencia",
+    title: "La sociedad red",
+    author: "Manuel Castells",
+    cover: "cover-cosmos",
+    format: "EPUB",
+    category: "Comunicación",
   },
   {
     id: 4,
-    title: "Cosmos",
-    author: "Carl Sagan",
-    cover: "cover-cosmos",
-    format: "EPUB",
-    category: "Astronomía",
+    title: "Patrimonio documental y digitalización",
+    author: "Consejo Internacional de Archivos",
+    cover: "cover-forest",
+    format: "PDF",
+    category: "Archivística",
+  },
+  {
+    id: 5,
+    title: "Lectura y universidad",
+    author: "Observatorio UTB",
+    cover: "cover-time",
+    format: "PDF",
+    category: "Educación",
   },
 ];
 
 const suggestions = [
-  "¿Cómo se comunican los árboles?",
-  "Resume mis últimas notas",
-  "Compara dos libros de ciencia",
+  "¿Qué dice la bibliografía sobre ética en IA?",
+  "Resume las notas de mi tesis",
+  "Compara dos artículos de investigación",
 ];
 
 const sessions = [
   {
     id: 1,
-    title: "La inteligencia de los bosques",
-    description: "Comunicación, cooperación y memoria en los ecosistemas forestales.",
+    title: "Tesis: Ética académica e IA generativa",
+    description:
+      "Autoría, integridad y evaluación en trabajos de grado con inteligencia artificial.",
     sources: 6,
     notes: 12,
     updated: "Hace 18 min",
-    accent: "session-sage",
-    icon: "FO",
+    accent: "session-cyan",
+    icon: "IA",
+    sourceIds: [1, 2, 3],
+    note: "La IA puede apoyar la revisión bibliográfica, pero la autoría, la interpretación y las citas deben ser verificables por el estudiante.",
   },
   {
     id: 2,
-    title: "El tiempo y el universo",
-    description: "Ideas de Rovelli y Sagan sobre tiempo, espacio y materia.",
+    title: "Proyecto: Hábitos de lectura en la UTB",
+    description:
+      "Encuesta sobre acceso, uso y preferencias de lectura en la comunidad universitaria.",
     sources: 4,
     notes: 8,
     updated: "Ayer",
-    accent: "session-blue",
-    icon: "TU",
+    accent: "session-indigo",
+    icon: "HL",
+    sourceIds: [2, 5],
+    note: "Los datos preliminares muestran que el formato digital gana terreno en lecturas obligatorias, pero el préstamo físico sigue siendo clave para la investigación.",
   },
   {
     id: 3,
-    title: "Historia de la ciencia",
-    description: "Descubrimientos que cambiaron nuestra forma de entender el mundo.",
+    title: "Artículo: Patrimonio documental digital",
+    description:
+      "Archivo, metadatos y preservación de colecciones históricas de la universidad.",
     sources: 9,
     notes: 15,
     updated: "8 jun",
-    accent: "session-clay",
-    icon: "HC",
+    accent: "session-teal",
+    icon: "PD",
+    sourceIds: [3, 4],
+    note: "Digitalizar no es preservar: se necesitan metadatos, derechos de uso y un plan de conservación a largo plazo.",
   },
 ];
 
 const emptySession = {
   id: 4,
-  title: "Nueva investigación",
-  description: "Un espacio nuevo para reunir fuentes, preguntas y hallazgos.",
+  title: "Nuevo trabajo de investigación",
+  description: "Organiza fuentes, notas y avances de tu proyecto académico.",
   sources: 0,
   notes: 0,
   updated: "Ahora",
-  accent: "session-sage",
-  icon: "NI",
+  accent: "session-cyan",
+  icon: "TI",
+  sourceIds: [] as number[],
+  note: "Aún no hay notas destacadas. Añade una fuente para comenzar tu investigación.",
 };
 
 const navItems: NavItem[] = [
   { id: "inicio", label: "Inicio", icon: Home },
-  { id: "sesiones", label: "Sesiones", icon: PanelsTopLeft },
+  { id: "sesiones", label: "Investigación", icon: PanelsTopLeft },
   { id: "asistente", label: "Preguntar", icon: MessageCircleQuestion, special: true },
   { id: "biblioteca", label: "Biblioteca", icon: Library },
   { id: "perfil", label: "Perfil", icon: CircleUserRound },
@@ -177,7 +196,7 @@ function App() {
             <span className="brand-icon">
               <BookMarked size={19} strokeWidth={2.2} />
             </span>
-            <span>Lectoria</span>
+            <span>Biblioteca UTB</span>
           </button>
           <div className="header-actions">
             <button
@@ -199,12 +218,6 @@ function App() {
         <div className="screen">
           {tab === "inicio" && (
             <section className="page enter">
-              <div className="welcome">
-                <span>MIÉRCOLES, 12 DE JUNIO</span>
-                <h1>Buenos días, Lucía</h1>
-                <p>¿Qué quieres descubrir hoy?</p>
-              </div>
-
               <form className="ask-card" onSubmit={askAssistant}>
                 <div className="ask-heading">
                   <span className="ai-orb">
@@ -271,7 +284,7 @@ function App() {
               <div className="section-heading books-title">
                 <div>
                   <span className="eyebrow">TU INVESTIGACIÓN</span>
-                  <h2>Sesiones recientes</h2>
+                  <h2>Investigaciones recientes</h2>
                 </div>
                 <button
                   className="text-link"
@@ -311,13 +324,13 @@ function App() {
             <section className="page enter">
               <div className="sessions-heading">
                 <div className="page-title">
-                  <span className="eyebrow">ESPACIOS DE INVESTIGACIÓN</span>
-                  <h1>Sesiones</h1>
-                  <p>Organiza fuentes, notas y conversaciones por tema.</p>
+                  <span className="eyebrow">TRABAJOS ACADÉMICOS</span>
+                  <h1>Investigación</h1>
+                  <p>Organiza fuentes, notas y avances de tus proyectos de investigación.</p>
                 </div>
                 <button
                   className="new-session"
-                  aria-label="Crear una sesión"
+                  aria-label="Crear un trabajo de investigación"
                   onClick={() => setSelectedSession(emptySession)}
                 >
                   <Plus size={19} />
@@ -325,12 +338,12 @@ function App() {
               </div>
               <label className="session-search">
                 <Search size={19} />
-                <input placeholder="Buscar en tus sesiones" />
+                <input placeholder="Buscar en tus investigaciones" />
               </label>
 
               <div className="session-list-heading">
                 <strong>Recientes</strong>
-                <span>{sessions.length} sesiones</span>
+                <span>{sessions.length} trabajos</span>
               </div>
               <div className="session-list">
                 {sessions.map((session) => (
@@ -370,8 +383,8 @@ function App() {
                   <Plus size={20} />
                 </span>
                 <div>
-                  <strong>Nueva sesión de investigación</strong>
-                  <small>Añade libros, PDF, EPUB o una fuente OPDS</small>
+                  <strong>Nuevo trabajo de investigación</strong>
+                  <small>Añade fuentes académicas, PDF, EPUB o un registro OPDS</small>
                 </div>
                 <ArrowRight size={18} />
               </button>
@@ -381,10 +394,13 @@ function App() {
           {tab === "sesiones" && selectedSession && (
             <section className="session-detail enter">
               <div className="session-detail-head">
-                <button onClick={() => setSelectedSession(null)} aria-label="Volver a sesiones">
+                <button
+                  onClick={() => setSelectedSession(null)}
+                  aria-label="Volver a las investigaciones"
+                >
                   <ArrowLeft size={20} />
                 </button>
-                <span>SESIÓN DE INVESTIGACIÓN</span>
+                <span>TRABAJO DE INVESTIGACIÓN</span>
                 <button aria-label="Más opciones">
                   <MoreHorizontal size={20} />
                 </button>
@@ -408,7 +424,7 @@ function App() {
               <div className="session-actions">
                 <button
                   onClick={() => {
-                    setSubmittedQuery("Resume las ideas principales de esta sesión");
+                    setSubmittedQuery("Resume los avances de este trabajo de investigación");
                     setTab("asistente");
                   }}
                 >
@@ -434,7 +450,7 @@ function App() {
               </div>
               <div className="session-sources">
                 {books
-                  .slice(0, selectedSession.id === 4 ? 0 : selectedSession.id === 1 ? 3 : 2)
+                  .filter((book) => selectedSession.sourceIds.includes(book.id))
                   .map((book) => (
                     <button key={book.id} onClick={() => setSelectedBook(book)}>
                       <MiniCover book={book} />
@@ -446,7 +462,7 @@ function App() {
                       <ArrowRight size={16} />
                     </button>
                   ))}
-                {selectedSession.id === 4 && (
+                {selectedSession.sourceIds.length === 0 && (
                   <button className="empty-source">
                     <Plus size={18} />
                     <span>
@@ -462,10 +478,7 @@ function App() {
               </div>
               <div className="session-note">
                 <Highlighter size={17} />
-                <p>
-                  La cooperación puede ser una estrategia evolutiva tan importante como la
-                  competencia.
-                </p>
+                <p>{selectedSession.note}</p>
                 <small>Editado {selectedSession.updated.toLowerCase()}</small>
               </div>
             </section>
@@ -524,7 +537,7 @@ function App() {
                 </span>
                 <div>
                   <h1>Asistente IA</h1>
-                  <p>Investiga en 12 fuentes conectadas</p>
+                  <p>Investigación guiada por la ética académica</p>
                 </div>
                 <button className="icon-button" aria-label="Ajustes">
                   <Settings2 size={19} />
@@ -538,7 +551,8 @@ function App() {
                   </span>
                   <h2>Investiga con tu biblioteca</h2>
                   <p>
-                    Haz preguntas, compara ideas y encuentra respuestas respaldadas por tus libros.
+                    Haz preguntas, compara ideas y encuentra respuestas respaldadas por tus libros
+                    y por criterios de ética académica.
                   </p>
                   <div>
                     {suggestions.map((item) => (
@@ -557,18 +571,19 @@ function App() {
                       <Sparkles size={15} /> RESPUESTA
                     </div>
                     <p>
-                      Los árboles se comunican mediante una red compleja de señales químicas y
-                      conexiones subterráneas. A través de las <strong>micorrizas</strong>, los
-                      hongos enlazan las raíces y facilitan el intercambio de nutrientes e
-                      información entre ejemplares.{" "}
+                      La literatura sobre ética de la IA en la educación superior coincide en que
+                      estas herramientas pueden apoyar la revisión bibliográfica y la organización
+                      de ideas, pero no sustituyen el juicio del investigador. La{" "}
+                      <strong>transparencia</strong> sobre su uso y la verificación de las fuentes
+                      son criterios centrales.{" "}
                       <button className="citation" onClick={() => setSourceOpen(true)}>
                         1
                       </button>
                     </p>
                     <p>
-                      También emiten compuestos volátiles para advertir a otros árboles sobre
-                      plagas. Esta cooperación no implica intención humana, pero sí una adaptación
-                      ecológica sofisticada.{" "}
+                      Los estudios también advierten sobre sesgos en los modelos y la necesidad de
+                      declarar su uso en trabajos de grado. La integridad académica exige que la
+                      autoría, la interpretación y las citas sean responsabilidad del estudiante.{" "}
                       <button className="citation" onClick={() => setSourceOpen(true)}>
                         2
                       </button>
@@ -578,7 +593,7 @@ function App() {
                         <MiniCover book={books[0]} />
                         <span>
                           <small>FUENTE 1</small>
-                          <strong>La vida secreta de los árboles</strong>
+                          <strong>{books[0].title}</strong>
                           <em>Cap. 3 · pág. 48</em>
                         </span>
                         <ExternalLink size={16} />
@@ -646,22 +661,22 @@ function App() {
               </div>
               <article className="reader-content">
                 <span className="chapter-number">03</span>
-                <h1>El lenguaje silencioso del bosque</h1>
+                <h1>Ética y responsabilidad en la investigación</h1>
                 <p className="lead">
-                  Si observamos con atención, el bosque deja de ser una colección de individuos y se
-                  revela como una comunidad.
+                  El uso de la inteligencia artificial en la academia exige transparencia,
+                  verificación y responsabilidad sobre las fuentes.
                 </p>
                 <p>
-                  Los árboles comparten alimento y se comunican entre sí. Sus raíces, entrelazadas
-                  con delicadas redes de hongos, transportan mensajes químicos a través del suelo.
+                  La IA puede acelerar la revisión bibliográfica y la organización de ideas, pero no
+                  reemplaza el juicio del investigador ni la lectura crítica de las fuentes.
                 </p>
                 <p className="highlighted">
-                  Cuando uno de ellos está en peligro, las señales viajan hacia sus vecinos, que
-                  comienzan a preparar sus defensas.
+                  Declarar el uso de herramientas de IA y verificar cada cita es parte de la
+                  integridad académica.
                 </p>
                 <p>
-                  Esta red subterránea transforma nuestra idea de competencia natural: el cuidado
-                  mutuo también puede ser una estrategia de supervivencia.
+                  La biblioteca universitaria acompaña estos procesos con formación en
+                  alfabetización informacional y acceso a fuentes confiables.
                 </p>
               </article>
               <div className="reader-footer">
@@ -723,8 +738,8 @@ function App() {
                 </div>
               </div>
               <blockquote>
-                “A través de una red de hongos subterránea, los árboles pueden intercambiar
-                nutrientes e incluso enviar señales de advertencia a sus vecinos.”
+                “El uso de sistemas de inteligencia artificial en la investigación debe ser
+                transparente, verificable y compatible con la responsabilidad académica del autor.”
               </blockquote>
               <button
                 className="primary-button"

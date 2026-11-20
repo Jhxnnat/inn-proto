@@ -1,6 +1,7 @@
 {
-  "name": "lectoria",
+  "name": "biblioteca-utb",
   "version": "1.0.0",
+  "description": "Biblioteca UTB — app móvil de lectura e investigación con IA guiada por la ética académica.",
   "private": true,
   "type": "module",
   "scripts": {
