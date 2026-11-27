@@ -318,7 +318,7 @@ function TabletHome() {
             <Sparkles size={17} />
           </span>
           <div>
-            <strong>Asistente de investigación</strong>
+            <strong>Asistente de Investigación Primo</strong>
           </div>
         </div>
         <div className="ask-input-wrap">
@@ -326,7 +326,7 @@ function TabletHome() {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Pregunta, compara o investiga..."
-            aria-label="Pregunta al asistente"
+            aria-label="Pregunta al Asistente de Investigación Primo"
           />
           <button type="submit" className="send-button" aria-label="Enviar pregunta">
             <ArrowRight size={18} />
@@ -705,7 +705,7 @@ function TabletAssistant() {
             <Sparkles size={21} />
           </span>
           <div>
-            <h1>Asistente IA</h1>
+            <h1>Asistente de Investigación Primo</h1>
             <p>Investigación guiada por la ética académica</p>
           </div>
           <button className="icon-button" aria-label="Ajustes">

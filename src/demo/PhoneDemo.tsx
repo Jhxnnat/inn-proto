@@ -84,7 +84,7 @@ export function PhoneDemo() {
                     <Sparkles size={17} />
                   </span>
                   <div>
-                    <strong>Asistente de investigación</strong>
+                    <strong>Asistente de Investigación Primo</strong>
                   </div>
                 </div>
                 <div className="ask-input-wrap">
@@ -92,7 +92,7 @@ export function PhoneDemo() {
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
                     placeholder="Pregunta, compara o investiga..."
-                    aria-label="Pregunta al asistente"
+                    aria-label="Pregunta al Asistente de Investigación Primo"
                   />
                   <button type="button" className="mic-button" aria-label="Usar micrófono">
                     <Mic size={18} />
@@ -387,7 +387,7 @@ export function PhoneDemo() {
                   <Sparkles size={21} />
                 </span>
                 <div>
-                  <h1>Asistente IA</h1>
+                  <h1>Asistente de Investigación Primo</h1>
                   <p>Investigación guiada por la ética académica</p>
                 </div>
                 <button className="icon-button" aria-label="Ajustes">
